@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- Character encoding for correct text rendering -->
+  <meta charset="utf-8" />
+
+  <!-- Viewport ensures responsive layout on different devices -->
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Page title used by browsers and screen readers -->
+  <title>BigPlanetarium | Mars</title>
+
+  <!-- Meta description summarises page purpose -->
+  <meta name="description" content="A dedicated Mars page with accessible interaction." />
+
+  <!-- Shared stylesheet -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- JavaScript loaded with defer so it does not block page rendering -->
+  <script defer src="script.js"></script>
+</head>
+
+<body>
+  <!-- Skip link allows keyboard users to jump directly to main content -->
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <!-- Header landmark for branding and primary navigation -->
+  <header class="site-header" role="banner">
+    <div class="container header-inner">
+
+      <!-- Brand link with aria-label for assistive technologies -->
+      <a class="brand" href="index.html" aria-label="BigPlanetarium home">
+        <!-- Decorative emoji hidden from screen readers -->
+        <span aria-hidden="true">🪐</span> BigPlanetarium
+      </a>
+
+      <!-- Primary navigation with aria-current to indicate active page -->
+      <nav class="nav" aria-label="Primary">
+        <a href="index.html">Milky Way</a>
+        <a href="planets.html">Planets</a>
+        <a aria-current="page" href="mars.html">Featured Planet: Mars</a>
+      </nav>
+
+      <!-- High contrast toggle uses aria-pressed to communicate state -->
+      <button class="contrast-toggle" type="button" data-contrast aria-pressed="false">
+        High contrast
+      </button>
+    </div>
+  </header>
+
+  <!-- Main landmark with tabindex to support skip link focus -->
+  <main id="main" class="container" tabindex="-1">
+
+    <!-- Page heading and introduction -->
+    <header class="page-head">
+      <h1>Mars</h1>
+      <p class="lead">
+        A dedicated page with accessible interaction: a quick fact toggle + a mini quiz.
+      </p>
+    </header>
+
+    <!-- Grid layout grouping Mars-related content -->
+    <section class="grid" aria-label="Mars content">
+
+      <!-- Article containing descriptive text and toggle interaction -->
+      <article class="card">
+        <h2>About Mars</h2>
+        <p>
+          Mars is often called the “Red Planet” because of iron-rich dust on its surface.
+          It has seasons, polar ice caps, and evidence that liquid water may have flowed long ago.
+        </p>
+
+        <!-- Button uses aria-controls and aria-expanded for accessibility -->
+        <button
+          class="btn"
+          type="button"
+          data-toggle
+          aria-controls="fact"
+          aria-expanded="false"
+        >
+          Show a quick fact
+        </button>
+
+        <!-- Hidden fact revealed by JavaScript -->
+        <p id="fact" class="hint" hidden>
+          Mars has the tallest volcano in the Solar System: Olympus Mons.
+        </p>
+      </article>
+
+      <!-- Figure groups image with caption -->
+      <figure class="card">
+        <!-- Image includes descriptive alt text -->
+        <img
+          src="media/Mars.png"
+          alt="Mars seen as a reddish planet with surface markings."
+          width="1200" height="1200"
+          loading="lazy"
+        />
+        <figcaption class="caption">A closer look at Mars.</figcaption>
+      </figure>
+
+      <!-- Article containing an accessible quiz -->
+      <article class="card">
+        <h2>Mini quiz</h2>
+
+        <!-- Form uses aria-describedby to explain interaction -->
+        <form id="quiz" class="quiz" aria-describedby="quiz-help">
+          <p id="quiz-help" class="hint">
+            Choose one answer and press “Check”. Your result will be announced.
+          </p>
+
+          <!-- Fieldset and legend group related radio inputs -->
+          <fieldset>
+            <legend>Mars is a…</legend>
+
+            <!-- Each label wraps its input for larger click/tap area -->
+            <label class="choice">
+              <input type="radio" name="q" value="gas" />
+              Gas giant
+            </label>
+
+            <label class="choice">
+              <input type="radio" name="q" value="rocky" />
+              Rocky planet
+            </label>
+
+            <label class="choice">
+              <input type="radio" name="q" value="star" />
+              Star
+            </label>
+          </fieldset>
+
+          <!-- Submit button triggers quiz logic -->
+          <button class="btn btn-outline" type="submit">Check</button>
+
+          <!-- aria-live announces result changes to screen readers -->
+          <p id="quizResult" class="hint" aria-live="polite"></p>
+        </form>
+      </article>
+    </section>
+
+    <!-- Section explaining accessibility decisions -->
+    <section class="card" aria-labelledby="a11y-mars">
+      <h2 id="a11y-mars">Why this page is accessible</h2>
+      <ul>
+        <li>
+          The fact button updates <code>aria-expanded</code> and shows/hides content
+          using the <code>hidden</code> attribute.
+        </li>
+        <li>
+          The quiz result uses <code>aria-live="polite"</code> so screen readers announce it.
+        </li>
+        <li>
+          All controls are keyboard operable and have visible focus.
+        </li>
+      </ul>
+    </section>
+  </main>
+
+  <!-- Footer landmark -->
+  <footer class="site-footer">
+    <div class="container">
+      <small>Mars page • Button toggle + quiz • Keyboard and screen-reader friendly</small>
+    </div>
+  </footer>
+</body>
+</html>

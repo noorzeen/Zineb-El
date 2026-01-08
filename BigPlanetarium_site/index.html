@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- Character encoding ensures text is read correctly by browsers and assistive tech -->
+  <meta charset="utf-8" />
+
+  <!-- Viewport meta tag supports responsive design on different devices -->
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Page title used by browsers and screen readers -->
+  <title>BigPlanetarium | Milky Way</title>
+
+  <!-- Meta description helps describe page purpose -->
+  <meta name="description" content="An accessible, educational prototype about the Milky Way and planets." />
+
+  <!-- Main stylesheet -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- JavaScript loaded with defer to avoid blocking page rendering -->
+  <script defer src="script.js"></script>
+</head>
+
+<body>
+  <!-- Skip link allows keyboard users to bypass navigation -->
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <!-- Header landmark for site branding and navigation -->
+  <header class="site-header" role="banner">
+    <div class="container header-inner">
+
+      <!-- Brand link with aria-label for screen readers -->
+      <a class="brand" href="index.html" aria-label="BigPlanetarium home">
+        <!-- Decorative emoji hidden from assistive technologies -->
+        <span aria-hidden="true">🪐</span> BigPlanetarium
+      </a>
+
+      <!-- Primary navigation landmark -->
+      <nav class="nav" aria-label="Primary">
+        <!-- aria-current indicates the active page -->
+        <a aria-current="page" href="index.html">Milky Way</a>
+        <a href="planets.html">Planets</a>
+        <a href="mars.html">Featured Planet: Mars</a>
+      </nav>
+
+      <!-- Button toggle uses aria-pressed to communicate state -->
+      <button class="contrast-toggle" type="button" data-contrast aria-pressed="false">
+        High contrast
+      </button>
+    </div>
+  </header>
+
+  <!-- Main content area with tabindex to support skip link focus -->
+  <main id="main" class="container" tabindex="-1">
+
+    <!-- Hero section with aria-labelledby for accessible naming -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+
+        <!-- Eyebrow text for visual hierarchy -->
+        <p class="eyebrow">Accessible space learning</p>
+
+        <!-- Main page heading -->
+        <h1 id="hero-title">Welcome to the Milky Way</h1>
+
+        <!-- Introductory paragraph explaining site purpose -->
+        <p class="lead">
+          The Milky Way is our home galaxy — a vast spiral of stars, gas, dust, and planets.
+          This prototype is designed to be <strong>fun</strong>, <strong>educational</strong>, and
+          <strong>accessible</strong> to as many people as possible.
+        </p>
+
+        <!-- Grouped actions for screen reader context -->
+        <div class="actions" role="group" aria-label="Quick actions">
+          <a class="btn" href="planets.html">Explore planets</a>
+          <a class="btn btn-outline" href="#video">Watch the video</a>
+        </div>
+
+        <!-- Definition list used for short factual information -->
+        <dl class="facts" aria-label="Quick facts">
+          <div class="fact">
+            <dt>Type</dt>
+            <dd>Spiral galaxy</dd>
+          </div>
+          <div class="fact">
+            <dt>Home to</dt>
+            <dd>Our Solar System</dd>
+          </div>
+          <div class="fact">
+            <dt>Why it matters</dt>
+            <dd>It’s where Earth lives</dd>
+          </div>
+        </dl>
+      </div>
+
+      <!-- Figure element groups image with caption -->
+      <figure class="hero-media">
+
+        <!-- Image includes alt text describing educational content -->
+        <img
+          src="media/hero.jpg"
+          alt="A close view of Mars, used as a dramatic space-themed hero image."
+          width="1600" height="700"
+          loading="eager" 
+          src="media/Mars.png" alt="Mars seen as a reddish planet with surface markings.">
+
+        />
+
+        <!-- Caption provides additional context -->
+        <figcaption class="caption">Hero image: Mars (edited from the provided image).</figcaption>
+      </figure>
+    </section>
+
+    <!-- Grid section containing learning content blocks -->
+    <section class="grid" aria-label="Learning blocks">
+
+      <!-- Each article represents a standalone learning topic -->
+      <article class="card">
+        <h2>What is a galaxy?</h2>
+        <p>
+          A galaxy is a massive system of stars, planets, gas, dust, and dark matter held together by gravity.
+          The Milky Way is one of billions of galaxies in the universe.
+        </p>
+      </article>
+
+      <article class="card">
+        <h2>Where are we?</h2>
+        <p>
+          Our Solar System sits in a region called the Orion Arm. We orbit the galactic centre along with many
+          other stars.
+        </p>
+      </article>
+
+      <article class="card">
+        <h2>How do we learn about space?</h2>
+        <p>
+          Scientists use telescopes, satellites, and robotic spacecraft to observe and measure objects far beyond Earth.
+        </p>
+      </article>
+    </section>
+
+    <!-- Video section with labelled heading -->
+    <section id="video" class="card video-card" aria-labelledby="video-title">
+      <h2 id="video-title">Video: A quick journey from the Milky Way to Earth</h2>
+
+      <!-- Hint text explains accessibility features -->
+      <p class="hint">
+        The video includes controls and captions. No autoplay.
+      </p>
+
+      <!-- Video element with captions track -->
+      <video class="media" controls preload="metadata">
+        <source src="media/video.mp4" type="video/mp4" />
+        <track kind="captions" src="media/captions.vtt" srclang="en" label="English captions" default />
+        Sorry, your browser cannot play this video.
+      </video>
+
+      <!-- Transcript link for users who prefer text -->
+      <p class="hint">
+        Prefer reading? <a class="link" href="media/video-transcript.txt">Open the transcript (txt)</a>.
+      </p>
+    </section>
+
+    <!-- Accessibility summary section -->
+    <section class="card" aria-labelledby="access-title">
+      <h2 id="access-title">Accessibility built in</h2>
+      <ul>
+        <li>Skip link for keyboard users</li>
+        <li>Clear focus styles (yellow outline)</li>
+        <li>Captions + transcript for the video</li>
+        <li>High-contrast toggle that remembers your choice</li>
+        <li>Semantic landmarks and good heading structure</li>
+      </ul>
+    </section>
+  </main>
+
+  <!-- Footer landmark -->
+  <footer class="site-footer">
+    <div class="container">
+      <small>BigPlanetarium prototype • Accessible HTML • Simple CSS • Small JS interactions</small>
+    </div>
+  </footer>
+</body>
+</html>

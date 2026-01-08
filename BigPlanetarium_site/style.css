@@ -1,0 +1,120 @@
+/* BigPlanetarium - accessible, responsive styling */
+:root{
+  --bg: #070b17;
+  --card: #0f1730;
+  --text: #e9eefc;
+  --muted: #b6c3e3;
+  --line: #1d2a55;
+  --accent: #ffffff;
+  --accentText: #070b17;
+  --focus: #fbbf24;
+}
+:root[data-contrast="high"]{
+  --bg: #000000;
+  --card: #0b0b0b;
+  --text: #ffffff;
+  --muted: #e6e6e6;
+  --line: #ffffff;
+  --accent: #fbbf24;
+  --accentText: #000000;
+  --focus: #fbbf24;
+}
+*{ box-sizing:border-box; }
+body{
+  margin:0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background: radial-gradient(1200px 700px at 20% 10%, rgba(120,160,255,.18), transparent 60%), var(--bg);
+  color:var(--text);
+  line-height:1.6;
+}
+.container{
+  width:min(1100px, 92vw);
+  margin:0 auto;
+  padding:16px 0;
+}
+.skip-link{
+  position:absolute; left:-999px; top:10px;
+  padding:10px 12px;
+  background:var(--accent); color:var(--accentText);
+  border-radius:10px; z-index:999;
+}
+.skip-link:focus{
+  left:10px;
+  outline:3px solid var(--focus);
+  outline-offset:3px;
+}
+.site-header{
+  position:sticky; top:0; z-index:100;
+  background:rgba(0,0,0,.35);
+  backdrop-filter: blur(10px);
+  border-bottom:1px solid var(--line);
+}
+.header-inner{ display:flex; align-items:center; gap:14px; padding:10px 0; }
+.brand{ color:var(--text); text-decoration:none; font-weight:800; margin-right:auto; }
+.nav{ display:flex; gap:8px; flex-wrap:wrap; }
+.nav a{ color:var(--text); text-decoration:none; padding:8px 10px; border-radius:10px; }
+.nav a[aria-current="page"]{ outline:2px solid var(--line); }
+.nav a:hover{ background:rgba(255,255,255,.06); }
+
+.btn, .contrast-toggle{
+  display:inline-flex; align-items:center; justify-content:center;
+  padding:10px 12px; border-radius:12px;
+  border:0; background:var(--accent); color:var(--accentText);
+  text-decoration:none; font-weight:700; cursor:pointer;
+}
+.btn-outline{ background:transparent; color:var(--text); border:1px solid var(--line); }
+.contrast-toggle{ background:transparent; color:var(--text); border:1px solid var(--line); }
+
+.hero{
+  display:grid; gap:16px; padding:16px;
+  border:1px solid var(--line); border-radius:18px;
+  background:linear-gradient(180deg, rgba(255,255,255,.04), transparent), var(--card);
+}
+@media (min-width: 900px){
+  .hero{ grid-template-columns: 1.1fr .9fr; align-items:start; }
+}
+.eyebrow{ margin:0 0 6px 0; color:var(--muted); font-weight:650; }
+.lead{ color:var(--muted); font-size:1.05rem; }
+.actions{ display:flex; gap:10px; flex-wrap:wrap; margin-top:10px; }
+.hero-media img{ width:100%; height:auto; border-radius:14px; border:1px solid var(--line); }
+.caption{ color:var(--muted); font-size:.95rem; margin-top:8px; }
+
+.facts{ display:grid; grid-template-columns:1fr; gap:10px; margin:14px 0 0; padding:0; }
+@media (min-width: 700px){ .facts{ grid-template-columns: repeat(3, 1fr); } }
+.fact{ padding:10px 12px; border-radius:14px; border:1px solid var(--line); background:rgba(255,255,255,.03); }
+.fact dt{ font-weight:800; }
+.fact dd{ margin:0; color:var(--muted); }
+
+.grid{ display:grid; gap:14px; margin-top:14px; grid-template-columns:1fr; }
+@media (min-width: 700px){ .grid{ grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1000px){ .grid{ grid-template-columns: repeat(3, 1fr); } }
+.card img{
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 14px;
+  border: 1px solid var(--line);
+}
+
+.card{ background:var(--card); border:1px solid var(--line); border-radius:18px; padding:14px; }
+.page-head{ padding:12px 0 4px 0; }
+.hint{ color:var(--muted); font-size:.95rem; }
+.link{ color:var(--accent); text-decoration: underline; }
+
+.media{ width:100%; border-radius:14px; border:1px solid var(--line); margin-top:10px; }
+.video-card{ margin-top:14px; }
+
+.choice{ display:block; margin:6px 0; }
+kbd{ padding:2px 6px; border-radius:8px; border:1px solid var(--line); background:rgba(255,255,255,.06); }
+
+a:focus-visible, button:focus-visible, input:focus-visible{
+  outline:3px solid var(--focus);
+  outline-offset:3px;
+}
+
+.site-footer{ border-top:1px solid var(--line); margin-top:24px; }
+.site-footer .container{ padding:18px 0; }
+
+@media (prefers-reduced-motion: reduce){
+  *{ scroll-behavior:auto !important; }
+}

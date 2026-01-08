@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- Character encoding for correct text display -->
+  <meta charset="utf-8" />
+
+  <!-- Viewport meta tag enables responsive layout -->
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Page title announced by screen readers and shown in browser tabs -->
+  <title>BigPlanetarium | Planets</title>
+
+  <!-- Meta description summarises the page purpose -->
+  <meta name="description" content="A simple, accessible list of planets with navigation." />
+
+  <!-- Shared stylesheet for consistent design -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- JavaScript loaded with defer to avoid blocking page rendering -->
+  <script defer src="script.js"></script>
+</head>
+
+<body>
+  <!-- Skip link allows keyboard users to jump directly to main content -->
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <!-- Header landmark for site branding and navigation -->
+  <header class="site-header" role="banner">
+    <div class="container header-inner">
+
+      <!-- Brand link with aria-label for screen readers -->
+      <a class="brand" href="index.html" aria-label="BigPlanetarium home">
+        <!-- Decorative emoji hidden from assistive technologies -->
+        <span aria-hidden="true">🪐</span> BigPlanetarium
+      </a>
+
+      <!-- Primary navigation with aria-current indicating active page -->
+      <nav class="nav" aria-label="Primary">
+        <a href="index.html">Milky Way</a>
+        <a aria-current="page" href="planets.html">Planets</a>
+        <a href="mars.html">Featured Planet: Mars</a>
+      </nav>
+
+      <!-- Button toggle for high-contrast mode using aria-pressed -->
+      <button class="contrast-toggle" type="button" data-contrast aria-pressed="false">
+        High contrast
+      </button>
+    </div>
+  </header>
+
+  <!-- Main landmark with tabindex to support skip link focus -->
+  <main id="main" class="container" tabindex="-1">
+
+    <!-- Page heading and introductory text -->
+    <header class="page-head">
+      <h1>Planets in our Solar System</h1>
+      <p class="lead">
+        This page is a quick, scannable overview. Use the links to visit a dedicated planet page.
+      </p>
+    </header>
+
+    <!-- Grid layout containing planet summary cards -->
+    <section class="grid" aria-label="Planet cards">
+
+      <!-- Each article represents a single planet -->
+      <article class="card">
+        <h2>Mercury</h2>
+        <p>Smallest planet, closest to the Sun.</p>
+      </article>
+
+      <article class="card">
+        <h2>Venus</h2>
+        <p>Very hot, thick atmosphere.</p>
+      </article>
+
+      <article class="card">
+        <h2>Earth</h2>
+        <p>Liquid water and life (as far as we know).</p>
+      </article>
+
+      <!-- Mars card includes a navigation link to a detailed page -->
+      <article class="card">
+        <h2>Mars</h2>
+        <p>Cold, dusty world with the largest volcano in the Solar System.</p>
+        <a class="btn btn-outline" href="mars.html">Open Mars page</a>
+      </article>
+
+      <article class="card">
+        <h2>Jupiter</h2>
+        <p>Largest planet, famous for the Great Red Spot.</p>
+      </article>
+
+      <article class="card">
+        <h2>Saturn</h2>
+        <p>Known for its beautiful rings.</p>
+      </article>
+
+      <article class="card">
+        <h2>Uranus</h2>
+        <p>An ice giant that spins on its side.</p>
+      </article>
+
+      <article class="card">
+        <h2>Neptune</h2>
+        <p>Farthest planet, powerful winds.</p>
+      </article>
+    </section>
+
+    <!-- Accessibility hint for keyboard users -->
+    <section class="card" aria-labelledby="nav-help">
+      <h2 id="nav-help">Keyboard tip</h2>
+      <p class="hint">
+        Press <kbd>Tab</kbd> to move through links and buttons.
+        The yellow outline shows where focus is.
+      </p>
+    </section>
+  </main>
+
+  <!-- Footer landmark -->
+  <footer class="site-footer">
+    <div class="container">
+      <small>Planets page • Accessible navigation • Consistent layout</small>
+    </div>
+  </footer>
+</body>
+</html>
