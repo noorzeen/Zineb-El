@@ -1,0 +1,143 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: #231651;
+  color: #070410;
+  font-family: "Lato", sans-serif;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  min-height: 90px;
+  padding: 16px;
+  background-color: #4dccbd;
+}
+
+header h1 {
+  margin: 0;
+  font-family: "Teko", sans-serif;
+  font-size: 2em;
+}
+
+nav {
+  display: none;
+}
+
+nav a {
+  color: #070410;
+  font-size: 1.1em;
+  text-decoration: none;
+}
+
+button {
+  padding: 16px;
+  border: 2px solid #070410;
+  border-radius: 16px;
+  background-color: #eef36a;
+  font-family: "Teko", sans-serif;
+  font-size: 2em;
+  text-transform: uppercase;
+}
+
+main {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  width: calc(100% - 32px);
+  max-width: 900px;
+  margin: 16px auto;
+}
+
+.movie-card {
+  background-color: white;
+  box-shadow: 8px 8px #070410;
+  font-size: 1.5em;
+}
+
+.movie-card img {
+  display: block;
+  width: 100%;
+}
+
+.movie-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px;
+}
+
+.movie-content h2 {
+  margin: 0;
+  font-family: "Teko", sans-serif;
+}
+
+.movie-content p {
+  margin: 0;
+}
+
+.movie-content button {
+  width: 100%;
+}
+
+@media (min-width: 720px) {
+  header {
+    min-height: 110px;
+    padding: 16px;
+  }
+
+  header h1 {
+    font-size: 3em;
+  }
+
+  nav {
+    display: flex;
+    gap: 32px;
+  }
+
+  nav a {
+    font-size: 1.2em;
+  }
+
+  main {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+    width: calc(100% - 64px);
+    margin: 32px auto;
+  }
+}
+
+@media (min-width: 1024px) {
+  header {
+    min-height: 120px;
+    padding: 16px;
+  }
+
+  nav {
+    gap: 48px;
+  }
+
+  main {
+    gap: 48px;
+    width: calc(100% - 96px);
+    margin: 48px auto;
+  }
+
+  .featured {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column: span 2;
+  }
+
+  .wide {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column: span 2;
+  }
+}
