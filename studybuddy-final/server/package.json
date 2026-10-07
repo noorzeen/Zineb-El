@@ -1,0 +1,14 @@
+{
+  "name": "studybuddy-server",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node --watch main.js",
+    "start": "node main.js"
+  },
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
+
